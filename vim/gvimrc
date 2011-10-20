@@ -72,10 +72,10 @@ set guioptions-=T
 color molokai
 
 " ConqueTerm wrapper
-function StartTerm()
-  execute 'ConqueTerm ' . $SHELL . ' --login'
-  setlocal listchars=tab:\ \ 
-endfunction
+" function StartTerm()
+"   execute 'ConqueTerm ' . $SHELL . ' --login'
+"   setlocal listchars=tab:\ \ 
+" endfunction
 
 " Project Tree
 if exists("loaded_nerd_tree")
