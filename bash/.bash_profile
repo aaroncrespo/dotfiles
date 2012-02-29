@@ -2,6 +2,10 @@ if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
 
+if [ -f ~/.bash_aliases ]; then
+  source ~/.bash_aliases
+fi
+
 if [ -f ~/.git-completion.bash ]; then
 	source ~/.git-completion.bash
 fi
@@ -17,7 +21,7 @@ function prompt_command {
   pwd > ~/.lastdir
   newdir=`pwd`
   if [ ! "$LASTDIR" = "$newdir" ]; then
-    ls -t | head -7
+    \ls -t | head -7
   fi
   export LASTDIR=$newdir
 }
@@ -39,8 +43,6 @@ fi
 
 PS1='\[\033[32m\]\u\033[00m\]: \033[34m\]\W\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 
-
-#alias ls='ls -FG'
 
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  DARKGRAY='\e[1;30m'
