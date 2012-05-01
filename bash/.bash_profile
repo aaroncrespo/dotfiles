@@ -42,7 +42,7 @@ if [ -f /opt/local/etc/bash_completion ]; then
 fi
 
 PS1='\[\033[32m\]\u\033[00m\]: \033[34m\]\W\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
-
+PS1="\[\033[G\]$PS1"
 
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  DARKGRAY='\e[1;30m'
@@ -50,3 +50,4 @@ PS1='\[\033[32m\]\u\033[00m\]: \033[34m\]\W\033[31m\]$(__git_ps1)\[\033[00m\]\$ 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 export HISTFILESIZE=10000 #last 10,000 commands
 export HISTSIZE=10000 #record last 10,000 commands per session
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
