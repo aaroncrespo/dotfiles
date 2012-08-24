@@ -22,3 +22,24 @@
 [alias]
         lol = log --graph --decorate --pretty=oneline --abbrev-commit
         lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[core]
+	excludesfile = /Users/aaroncrespo/.gitignore_global
+	whitespace = trailing-space,space-before-tab
+[merge]
+	keepBackup = false;
+	tool = p4merge
+[mergetool "p4merge"]
+	cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+	keepTemporaries = false
+	trustExitCode = false
+	keepBackup = false
+[diff]
+	external = p4diff
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[mergetool]
+	keepBackup = true
