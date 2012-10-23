@@ -1,28 +1,15 @@
-# setup home end etc..
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
-"\e[5~": history-search-backward
-"\e[6~": history-search-forward
 "\e[3~": delete-char
 "\e[2~": quoted-insert
 "\e[5C": forward-word
 "\e[5D": backward-word
 "\e\e[C": forward-word
 "\e\e[D": backward-word
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
 
-# Make Tab autocomplete regardless of filename case
-set completion-ignore-case on
-
-# List all matches in case multiple possible completions are possible
 set show-all-if-ambiguous on
-
-# Immediately add a trailing slash when autocompleting symlinks to directories
-set mark-symlinked-directories on
-
-# Show extra file information when completing, like `ls -F` does
-set visible-stats on
-
-# Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
-set input-meta on
-set output-meta on
-set convert-meta off
+set completion-ignore-case on 
