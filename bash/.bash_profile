@@ -37,8 +37,14 @@ function parse_git_branch {
 
 export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[31;1m\]\$(parse_git_branch)\[\e[34;1m\]\[\e[34;1m\]❯ \[\e[0m\]"
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+export NODE="/usr/local/lib/node"
+export NPM="/usr/local/share/npm/bin"
+export NIC_PLUS_NODE="~/src/nicplus/node_modules/.bin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$NIC_PLUS_NODE:$NODE:$PATH:$NPM"
+
 export HISTFILESIZE=10000 #last 10,000 commands
 export HISTSIZE=10000 #record last 10,000 commands per session
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
+
+
