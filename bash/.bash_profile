@@ -1,4 +1,4 @@
-for file in ~/.{bash_aliases,git-completion.bash}; do
+for file in ~/.{bash_aliases,git-completion.bash,~/.rbenv/completions/rbenv.bash}; do
   [ -r "$file" ] && source "$file"
 done
 
@@ -45,5 +45,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
 
-export HISTFILESIZE=10000 #last 10,000 commands
-export HISTSIZE=10000 #record last 10,000 commands per session
+#last 10,000 commands
+export HISTFILESIZE=10000
+#record last 10,000 commands per session
+export HISTSIZE=10000
+# When executing the same command twice or more in a row, only store it once.
+export HISTCONTROL=ignoredups;
