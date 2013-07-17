@@ -1,4 +1,4 @@
-for file in ~/.{bash_aliases,git-completion.bash***REMOVED*** do
+for file in ~/.{bash_aliases,git-completion.bash,~/.rbenv/completions/rbenv.bash***REMOVED*** do
   [ -r "$file" ] && source "$file"
 done
 
@@ -26,13 +26,11 @@ fi
 
 # Git status for prompt
 function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+  [[ $(git status --porcelain 2> /dev/null | tail -n1) != "" ]] && echo "*"
 }
 
 function parse_git_branch {
-  git branch --no-color 2> /dev/null \
-  | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1 /"
-  #| sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
 export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[31;1m\]\$(parse_git_branch)\[\e[34;1m\]\[\e[34;1m\]❯ \[\e[0m\]"
@@ -45,5 +43,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
 
-export HISTFILESIZE=10000 #last 10,000 commands
-export HISTSIZE=10000 #record last 10,000 commands per session
+#last 10,000 commands
+export HISTFILESIZE=10000
+#record last 10,000 commands per session
+export HISTSIZE=10000
+# When executing the same command twice or more in a row, only store it once.
+export HISTCONTROL=ignoredups;
