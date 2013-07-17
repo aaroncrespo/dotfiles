@@ -1,16 +1,22 @@
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
-"\e[3~": delete-char
-"\e[2~": quoted-insert
-"\e[5C": forward-word
-"\e[5D": backward-word
-"\e\e[C": forward-word
-"\e\e[D": backward-word
-"\e[A": history-search-backward
-"\e[B": history-search-forward
+
 "\e[C": forward-char
 "\e[D": backward-char
- 	
+"\e[3~": delete-char
+
+"\e[2~": quoted-insert
+
+"\e[1;5D": backward-word
+"\e[1;3D": backward-word
+"\e[5D": backward-word
+"\e\e[D": backward-word
+"\e[1;5C": forward-word
+"\e[1;3C": forward-word
+"\e[5C": forward-word
+"\e\e[C": forward-word
+
+
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
 
@@ -27,4 +33,7 @@ set visible-stats on
 set input-meta on
 set output-meta on
 set convert-meta off
-set completion-ignore-case on 
+set completion-ignore-case on
+
+# Neither sound a beep nor flash the screen when trying to ring the bell.
+set bell-style none
