@@ -33,19 +33,19 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[31;1m\]\$(parse_git_branch)\[\e[34;1m\]\[\e[34;1m\]❯ \[\e[0m\]"
-
-export NODE="/usr/local/lib/node"
-export NPM="/usr/local/share/npm/bin"
-export NIC_PLUS_NODE="$HOME/src/nicplus/node_modules/.bin"
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$NIC_PLUS_NODE:$NODE:$NPMi:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-eval "$(rbenv init -)"
-
 #last 10,000 commands
 export HISTFILESIZE=10000
 #record last 10,000 commands per session
 export HISTSIZE=10000
 # When executing the same command twice or more in a row, only store it once.
 export HISTCONTROL=ignoredups;
+
+export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[31;1m\]\$(parse_git_branch)\[\e[34;1m\]\[\e[34;1m\]❯ \[\e[0m\]"
+
+export PATH="/usr/local/lib/nodei:$PATH"
+export PATH="/usr/local/share/npm/bin:$PATH"
+export PATH="$HOME/src/nicplus/node_modules/.bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+eval "$(rbenv init -)"
