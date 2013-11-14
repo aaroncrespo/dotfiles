@@ -24,22 +24,15 @@
         lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [core]
 	excludesfile = /Users/aaroncrespo/.gitignore_global
-	whitespace = trailing-space,space-before-tab
+  whitespace = trailing-space,space-before-tab
+  editor = /usr/bin/vim
 [merge]
 	keepBackup = false;
-	tool = p4merge
-[mergetool "p4merge"]
-	cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-	keepTemporaries = false
-	trustExitCode = false
-	keepBackup = false
-[diff]
-	external = p4diff
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	trustExitCode = true
-[mergetool]
-	keepBackup = true
+[push]
+	default = simple
