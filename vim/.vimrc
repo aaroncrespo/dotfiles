@@ -16,6 +16,9 @@ filetype indent plugin on
 " syntax highlight 
 syntax on
 
+"color sceheme
+colorscheme Tomorrow-Night
+
 " do not wrap
 set nowrap
 
@@ -64,6 +67,9 @@ inoremap <MiddleMouse> <Nop>
 inoremap <2-MiddleMouse> <Nop>
 inoremap <3-MiddleMouse> <Nop>
 inoremap <4-MiddleMouse> <Nop>
+
+" ; acts like :
+noremap ; :
 
 " cmd history length
 set history=1000
