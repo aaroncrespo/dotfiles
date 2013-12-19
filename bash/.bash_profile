@@ -1,3 +1,11 @@
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+  platform='linux'
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+  platform='freebsd'
+fi
+
 for file in ~/.{bash_aliases,git-completion.bash,~/.rbenv/completions/rbenv.bash}; do
   [ -r "$file" ] && source "$file"
 done
@@ -41,6 +49,10 @@ export HISTSIZE=10000
 export HISTCONTROL=ignoredups;
 
 export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[31;1m\]\$(parse_git_branch)\[\e[34;1m\]\[\e[34;1m\]❯ \[\e[0m\]"
+
+if [[ $platform == 'freebsd' ]]; then
+  export PATH="/usr/local/Cellar/vim/7.4.052/bin:$PATH"
+fi
 
 export PATH="/usr/local/lib/nodei:$PATH"
 export PATH="/usr/local/share/npm/bin:$PATH"
