@@ -1,16 +1,19 @@
 set nocompatible
-set encoding=utf-8
- 
-" bundles used:
-" NERDTree
-" vim-airline
-" syntastic 
-" ctrlp
-" Pathogen
+
 filetype off
-call pathogen#infect()
-call pathogen#helptags()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'NERDTree'
+Bundle 'syntastic' 
+Bundle 'kien/ctrlp.vim'
+Bundle 'Valloric/YouCompleteMe'
+
 filetype indent plugin on
+
+" set encoding=utf-8
+" use patched fonts
+let g:airline_powerline_fonts = 1
 
 " Appearance
 " syntax highlight 
