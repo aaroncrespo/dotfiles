@@ -8,10 +8,11 @@ Bundle 'NERDTree'
 Bundle 'syntastic' 
 Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'bling/vim-airline'
 
 filetype indent plugin on
 
-" set encoding=utf-8
+set encoding=utf-8
 " use patched fonts
 let g:airline_powerline_fonts = 1
 
@@ -103,6 +104,7 @@ set tabstop=2
 
 " for backspacing
 set softtabstop=2
+set backspace=indent,eol,start
 
 " shift to indentation levels
 set shiftround
@@ -119,7 +121,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
-
+let NERDTreeMinimalUI=1
 " show hidden files
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['swo$','\.swp$','\.git','\.hg','\.svn','\.bzr']
