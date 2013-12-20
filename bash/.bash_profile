@@ -46,7 +46,7 @@ export HISTSIZE=10000
 # When executing the same command twice or more in a row, only store it once.
 export HISTCONTROL=ignoredups:erasedupes;
 # Save Reload History after a command
-export PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -n; history -w; history -c; history -r; "prompt_command"; $PROMPT_COMMAND"
 
 export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[31;1m\]\$(parse_git_branch)\[\e[34;1m\]\[\e[34;1m\]❯ \[\e[0m\]"
 
