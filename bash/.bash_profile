@@ -26,8 +26,6 @@ function prompt_command {
   export LASTDIR=$newdir
 }
 
-export PROMPT_COMMAND="prompt_command"
-
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
@@ -46,7 +44,9 @@ export HISTFILESIZE=10000
 #record last 10,000 commands per session
 export HISTSIZE=10000
 # When executing the same command twice or more in a row, only store it once.
-export HISTCONTROL=ignoredups;
+export HISTCONTROL=ignoredups:erasedupes;
+# Save Reload History after a command
+export PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
 export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[31;1m\]\$(parse_git_branch)\[\e[34;1m\]\[\e[34;1m\]❯ \[\e[0m\]"
 
