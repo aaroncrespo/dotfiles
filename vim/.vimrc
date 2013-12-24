@@ -31,6 +31,7 @@ set t_Co=256
 
 " line numbers always
 set number
+set relativenumber
 
 " if term supported allow mouse
 set mouse=a
