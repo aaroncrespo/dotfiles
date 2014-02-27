@@ -9,6 +9,10 @@ Bundle 'syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-classpath'
+Bundle 'guns/vim-clojure-static'
+Bundle 'kovisoft/slimv'
 
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
@@ -19,6 +23,9 @@ filetype indent plugin on
 set encoding=utf-8
 " use patched fonts
 let g:airline_powerline_fonts = 1
+
+set ofu=syntaxcomplete#Complete
+
 
 " Appearance
 " syntax highlight 
@@ -82,7 +89,7 @@ noremap ; :
 
 " cmd history length
 set history=1000
-
+  
 " undo history
 set undolevels=1000
 
@@ -134,7 +141,7 @@ let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 " ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " mappings
 let mapleader = ","
