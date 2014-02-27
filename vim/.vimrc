@@ -10,6 +10,10 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'bling/vim-airline'
 
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-classpath'
+Bundle 'guns/vim-clojure-static'
+
 filetype indent plugin on
 
 set encoding=utf-8
