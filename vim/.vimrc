@@ -9,9 +9,7 @@ Bundle 'syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'guns/vim-clojure-static'
+
 Bundle 'kovisoft/slimv'
 
 Bundle 'tpope/vim-fireplace'
@@ -21,6 +19,7 @@ Bundle 'guns/vim-clojure-static'
 filetype indent plugin on
 
 set encoding=utf-8
+
 " use patched fonts
 let g:airline_powerline_fonts = 1
 
@@ -62,7 +61,7 @@ set matchtime=1
 
 " Editing Functionality
 " auto indent
-set autoindent
+" set autoindent
 
 " copy previous indent when auto indent
 set copyindent 
@@ -123,8 +122,8 @@ set shiftround
 
 " insert \v before any searched string, basically replacing vim's wonky re
 " " syntax with regular re syntax
-vnoremap / /\v
-nnoremap / /\v
+"vnoremap / /\v
+"nnoremap / /\v
 
 " Nerdtree
 autocmd VimEnter * NERDTree | wincmd p
