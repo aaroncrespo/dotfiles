@@ -16,6 +16,10 @@ Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 
+Bundle 'gregsexton/MatchTag'
+
+Bundle 'pangloss/vim-javascript'
+
 filetype indent plugin on
 
 set encoding=utf-8
@@ -23,8 +27,7 @@ set encoding=utf-8
 " use patched fonts
 let g:airline_powerline_fonts = 1
 
-set ofu=syntaxcomplete#Complete
-
+"set ofu=syntaxcomplete#Complete
 
 " Appearance
 " syntax highlight 
@@ -35,6 +38,9 @@ colorscheme Tomorrow-Night
 
 " do not wrap
 set nowrap
+
+" wrap movement
+set whichwrap+=<,>,h,l,[,]
 
 " 256 color support
 set t_Co=256
@@ -125,6 +131,9 @@ set shiftround
 "vnoremap / /\v
 "nnoremap / /\v
 
+"
+" Plugins
+"
 " Nerdtree
 autocmd VimEnter * NERDTree | wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -144,3 +153,19 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 
 " mappings
 let mapleader = ","
+
+" YCM
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_min_num_of_chars_for_completion = 2
+
+"
+" Syntax
+"
+autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Misc
+set cinwords=if,else,while,do,for,switch,case
+
