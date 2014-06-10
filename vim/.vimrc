@@ -1,24 +1,25 @@
 set nocompatible
-
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-Bundle 'scrooloose/nerdtree'
-Bundle 'syntastic' 
-Bundle 'kien/ctrlp.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'bling/vim-airline'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'kovisoft/slimv'
+Plugin 'scrooloose/nerdtree'
+Plugin 'syntastic' 
+Plugin 'kien/ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'bling/vim-airline'
 
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'guns/vim-clojure-static'
+Plugin 'kovisoft/slimv'
 
-Bundle 'gregsexton/MatchTag'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-classpath'
+Plugin 'guns/vim-clojure-static'
 
-Bundle 'pangloss/vim-javascript'
+Plugin 'gregsexton/MatchTag'
+
+Plugin 'pangloss/vim-javascript'
+call vundle#end()
 
 filetype indent plugin on
 
