@@ -1,25 +1,26 @@
 set nocompatible
-
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-Bundle 'scrooloose/nerdtree'
-Bundle 'syntastic' 
-Bundle 'kien/ctrlp.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'bling/vim-airline'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'kovisoft/slimv'
+Plugin 'scrooloose/nerdtree'
+Plugin 'syntastic' 
+Plugin 'kien/ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'bling/vim-airline'
 
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'guns/vim-clojure-static'
+Plugin 'kovisoft/slimv'
 
-Bundle 'gregsexton/MatchTag'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-classpath'
+Plugin 'guns/vim-clojure-static'
 
-Bundle 'pangloss/vim-javascript'
+Plugin 'gregsexton/MatchTag'
 
+Plugin 'pangloss/vim-javascript'
+
+call vundle#end()
 filetype indent plugin on
 
 set encoding=utf-8
@@ -135,8 +136,9 @@ set shiftround
 " Plugins
 "
 " Nerdtree
-autocmd VimEnter * NERDTree | wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+#autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
