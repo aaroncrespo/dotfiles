@@ -4,6 +4,8 @@ if [[ "$unamestr" == 'Linux' ]]; then
   platform='linux'
 elif [[ "$unamestr" == 'FreeBSD' ]]; then
   platform='freebsd'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+  platform='darwin'
 fi
 
 for file in ~/.{bash_aliases,git-completion.bash,~/.rbenv/completions/rbenv.bash***REMOVED*** do
@@ -50,14 +52,10 @@ export PROMPT_COMMAND="history -n; history -w; history -c; history -r; "prompt_c
 
 export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[31;1m\]\$(parse_git_branch)\[\e[34;1m\]\[\e[34;1m\]❯ \[\e[0m\]"
 
-if [[ $platform == 'freebsd' ]]; then
-  export PATH="/usr/local/Cellar/vim/7.4.052/bin:$PATH"
-fi
-
-export PATH="/usr/local/lib/nodei:$PATH"
-export PATH="/usr/local/share/npm/bin:$PATH"
-export PATH="$HOME/src/nicplus/node_modules/.bin:$PATH"
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+
+if [[ $platform != 'freebsd' || $platform != 'linux' ]]; then
+  alias vim="/usr/local/bin/vim"
+fi
 
 eval "$(rbenv init -)"
