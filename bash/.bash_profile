@@ -28,8 +28,8 @@ function prompt_command {
   export LASTDIR=$newdir
 }
 
-if [ -f /opt/local/etc/bash_completion ]; then
-    . /opt/local/etc/bash_completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
 fi
 
 # Git status for prompt
@@ -53,6 +53,7 @@ export PROMPT_COMMAND="history -n; history -w; history -c; history -r; "prompt_c
 export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[31;1m\]\$(parse_git_branch)\[\e[34;1m\]\[\e[34;1m\]❯ \[\e[0m\]"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
 if [[ $platform != 'freebsd' || $platform != 'linux' ]]; then
   alias vim="/usr/local/bin/vim"
