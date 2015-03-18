@@ -23,16 +23,12 @@
         lol = log --graph --decorate --pretty=oneline --abbrev-commit
         lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [core]
-	excludesfile = /Users/aaroncrespo/.gitignore_global
-  whitespace = trailing-space,space-before-tab
-  editor = /usr/bin/vim
+  	excludesfile = ~/.gitignore
+  	autocrlf = input
+  	editor = /usr/bin/vim
+[fetch]
+	prune = true
 [merge]
-	keepBackup = false;
-[difftool "sourcetree"]
-	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-	trustExitCode = true
+	ff = only
 [push]
-	default = simple
+	default = current
