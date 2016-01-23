@@ -1,0 +1,204 @@
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***;
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***;
+***REMOVED***
+
+***REMOVED***
+***REMOVED*** name = "#cobol"; chatnet = "synirc"; autojoin = "Yes"; },
+***REMOVED*** name = "#swift-lang"; chatnet = "freenode"; autojoin = "Yes"; }
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***;
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+    ***REMOVED***
+        barstart = { priority = "100"; ***REMOVED***
+        time = { ***REMOVED***
+        user = { ***REMOVED***
+    ***REMOVED*** ***REMOVED***
+        window_empty = { ***REMOVED***
+        lag = { priority = "-1"; ***REMOVED***
+        act = { priority = "10"; ***REMOVED***
+        more = { priority = "-1"; alignment = "right"; ***REMOVED***
+        barend = { priority = "100"; alignment = "right"; ***REMOVED***
+    ***REMOVED***;
+  ***REMOVED***;
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+    ***REMOVED***
+        barstart = { priority = "100"; ***REMOVED***
+    ***REMOVED*** ***REMOVED***
+        window_empty = { ***REMOVED***
+        more = { priority = "-1"; alignment = "right"; ***REMOVED***
+        barend = { priority = "100"; alignment = "right"; ***REMOVED***
+    ***REMOVED***;
+  ***REMOVED***;
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+    ***REMOVED***
+    ***REMOVED*** priority = "-1"; ***REMOVED***
+        prompt_empty = { priority = "-1"; ***REMOVED***
+***REMOVED***
+        input = { priority = "10"; ***REMOVED***
+    ***REMOVED***;
+  ***REMOVED***;
+
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+    ***REMOVED***
+        topicbarstart = { priority = "100"; ***REMOVED***
+    ***REMOVED*** ***REMOVED***
+        topic_empty = { ***REMOVED***
+        topicbarend = { priority = "100"; alignment = "right"; ***REMOVED***
+    ***REMOVED***;
+  ***REMOVED***;
+***REMOVED***;
+***REMOVED***
+***REMOVED***
+  core = { real_name = "root"; user_name = "root"; nick = "root"; ***REMOVED***
+  "fe-text" = { actlist_sort = "refnum"; term_force_colors = "yes"; ***REMOVED***
+  "fe-common/core" = { theme = "solarized-universal"; autolog = "yes"; ***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED*** key = "meta-[M"; id = "command"; data = "mouse_xterm "; }
+***REMOVED***
