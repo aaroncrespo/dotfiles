@@ -60,3 +60,5 @@ if [[ $platform != 'freebsd' || $platform != 'linux' ]]; then
 fi
 
 eval "$(rbenv init -)"
+
+source ~/.iterm2_shell_integration.bash
