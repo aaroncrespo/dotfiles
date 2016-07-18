@@ -12,6 +12,10 @@ for file in ~/.{bash_aliases,git-completion.bash,~/.rbenv/completions/rbenv.bash
   [ -r "$file" ] && source "$file"
 done
 
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
 #last directory automation
 if [ -f ~/.lastdir ]; then
   cd "`cat ~/.lastdir`"
@@ -41,14 +45,19 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-#last 10,000 commands
-export HISTFILESIZE=10000
+export HISTFILESIZE=1000000
 #record last 10,000 commands per session
-export HISTSIZE=10000
+export HISTSIZE=1000000
 # When executing the same command twice or more in a row, only store it once.
-export HISTCONTROL=ignoredups:erasedupes;
+export HISTCONTROL="ignoredups:erasedupes"
 # Save Reload History after a command
-export PROMPT_COMMAND="history -n; history -w; history -c; history -r; "prompt_command"; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -n; history -w; history -c; history -r; history -a;"prompt_command"; $PROMPT_COMMAND"
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+
+shopt -s histappend
+shopt -s cmdhist
+shopt -s cdspell
+shopt -s dirspell
 
 export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[31;1m\]\$(parse_git_branch)\[\e[34;1m\]\[\e[34;1m\]❯ \[\e[0m\]"
 
@@ -60,3 +69,5 @@ if [[ $platform != 'freebsd' || $platform != 'linux' ]]; then
 fi
 
 eval "$(rbenv init -)"
+
+test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
