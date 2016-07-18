@@ -8,7 +8,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
   platform='darwin'
 fi
 
-for file in ~/.{bash_aliases,git-completion.bash,~/.rbenv/completions/rbenv.bash***REMOVED*** do
+for file in ~/.{bash_aliases,git-completion.bash,~/.rbenv/completions/rbenv.bash}; do
   [ -r "$file" ] && source "$file"
 done
 
@@ -70,4 +70,4 @@ fi
 
 eval "$(rbenv init -)"
 
-test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
+source ~/.iterm2_shell_integration.bash

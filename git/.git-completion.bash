@@ -118,7 +118,7 @@ __git_ps1_show_upstream ()
 	done <<< "$output"
 
 	# parse configuration values
-	for option in ${GIT_PS1_SHOWUPSTREAM***REMOVED*** do
+	for option in ${GIT_PS1_SHOWUPSTREAM}; do
 		case "$option" in
 		git|svn) upstream="$option" ;;
 		verbose) verbose=1 ;;
@@ -138,7 +138,7 @@ __git_ps1_show_upstream ()
 			svn_upstream=${svn_upstream[ ${#svn_upstream[@]} - 2 ]}
 			svn_upstream=${svn_upstream%@*}
 			local n_stop="${#svn_remote[@]}"
-			for ((n=1; n <= n_stop; n++)***REMOVED*** do
+			for ((n=1; n <= n_stop; n++)); do
 				svn_upstream=${svn_upstream#${svn_remote[$n]}}
 			done
 
@@ -382,7 +382,7 @@ __git_reassemble_comp_words_by_ref()
 	fi
 	# List of word completion separators has shrunk;
 	# re-assemble words to complete.
-	for ((i=0, j=0; i < ${#COMP_WORDS[@]***REMOVED*** i++, j++)***REMOVED*** do
+	for ((i=0, j=0; i < ${#COMP_WORDS[@]}; i++, j++)); do
 		# Append each nonempty word consisting of just
 		# word separator characters to the current word.
 		first=t
@@ -402,7 +402,7 @@ __git_reassemble_comp_words_by_ref()
 			if [ $i = $COMP_CWORD ]; then
 				cword_=$j
 			fi
-			if (($i < ${#COMP_WORDS[@]} - 1)***REMOVED*** then
+			if (($i < ${#COMP_WORDS[@]} - 1)); then
 				((i++))
 			else
 				# Done.
@@ -600,7 +600,7 @@ __git_refs ()
 __git_refs2 ()
 {
 	local i
-	for i in $(__git_refs "$1"***REMOVED*** do
+	for i in $(__git_refs "$1"); do
 		echo "$i:$i"
 	done
 }
@@ -619,7 +619,7 @@ __git_remotes ()
 {
 	local i IFS=$'\n' d="$(__gitdir)"
 	test -d "$d/remotes" && ls -1 "$d/remotes"
-	for i in $(git --git-dir="$d" config --get-regexp 'remote\..*\.url' 2>/dev/null***REMOVED*** do
+	for i in $(git --git-dir="$d" config --get-regexp 'remote\..*\.url' 2>/dev/null); do
 		i="${i#remote.}"
 		echo "${i/.url*/}"
 	done
@@ -682,15 +682,15 @@ __git_complete_revlist_file ()
 				| sed '/^100... blob /{
 				           s,^.*	,,
 				           s,$, ,
-				     ***REMOVED***
+				       }
 				       /^120000 blob /{
 				           s,^.*	,,
 				           s,$, ,
-				     ***REMOVED***
+				       }
 				       /^040000 tree /{
 				           s,^.*	,,
 				           s,$,/,
-				     ***REMOVED***
+				       }
 				       s/^.*	//')" \
 			-- "$cur_"))
 		;;
@@ -928,7 +928,7 @@ __git_compute_porcelain_commands ()
 __git_pretty_aliases ()
 {
 	local i IFS=$'\n'
-	for i in $(git --git-dir="$(__gitdir)" config --get-regexp "pretty\..*" 2>/dev/null***REMOVED*** do
+	for i in $(git --git-dir="$(__gitdir)" config --get-regexp "pretty\..*" 2>/dev/null); do
 		case "$i" in
 		pretty.*)
 			i="${i#pretty.}"
@@ -941,7 +941,7 @@ __git_pretty_aliases ()
 __git_aliases ()
 {
 	local i IFS=$'\n'
-	for i in $(git --git-dir="$(__gitdir)" config --get-regexp "alias\..*" 2>/dev/null***REMOVED*** do
+	for i in $(git --git-dir="$(__gitdir)" config --get-regexp "alias\..*" 2>/dev/null); do
 		case "$i" in
 		alias.*)
 			i="${i#alias.}"
@@ -2296,7 +2296,7 @@ _git_remote ()
 		;;
 	update)
 		local i c='' IFS=$'\n'
-		for i in $(git --git-dir="$(__gitdir)" config --get-regexp "remotes\..*" 2>/dev/null***REMOVED*** do
+		for i in $(git --git-dir="$(__gitdir)" config --get-regexp "remotes\..*" 2>/dev/null); do
 			i="${i#remotes.}"
 			c="$c ${i/ */}"
 		done

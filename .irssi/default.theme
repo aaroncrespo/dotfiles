@@ -55,7 +55,7 @@ info_eol = "false";
 
 # these characters are automatically replaced with specified color
 # (dark grey by default)
-replaces = { "[]=" = "%K$*%n"; ***REMOVED***
+replaces = { "[]=" = "%K$*%n"; };
 
 abstracts = {
   ##
@@ -291,4 +291,4 @@ abstracts = {
   sb_act_hilight = "%M$*";
   # hilight with specified color, $0 = color, $1 = text
   sb_act_hilight_color = "$0$1-%n";
-***REMOVED***
+};

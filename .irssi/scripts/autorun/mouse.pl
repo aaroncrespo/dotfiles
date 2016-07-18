@@ -18,10 +18,10 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 use strict;
-use Irssi qw(signal_emit settings_get_str active_win signal_stop settings_add_str settings_add_bool settings_get_bool signal_add signal_add_first***REMOVED***
+use Irssi qw(signal_emit settings_get_str active_win signal_stop settings_add_str settings_add_bool settings_get_bool signal_add signal_add_first);
 use Math::Trig;
 
-use vars qw($VERSION %IRSSI***REMOVED***
+use vars qw($VERSION %IRSSI);
 
 $VERSION = '1.0.0';
 %IRSSI = (
@@ -32,12 +32,12 @@ $VERSION = '1.0.0';
 	license 	=> 'GPLv2 or later',
 	url     	=> 'http://wouter.coekaerts.be/irssi/',
 	changed  	=> '2009-05-16',
-***REMOVED***
+);
 
-my @BUTTONS = ('', '_middle', '_right'***REMOVED***
+my @BUTTONS = ('', '_middle', '_right');
 
 my $mouse_xterm_status = -1; # -1:off 0,1,2:filling mouse_xterm_combo
-my @mouse_xterm_combo = (3, 0, 0***REMOVED*** # 0:button 1:x 2:y
+my @mouse_xterm_combo = (3, 0, 0); # 0:button 1:x 2:y
 my @mouse_xterm_previous; # previous contents of mouse_xterm_combo
 
 sub mouse_enable {
@@ -51,32 +51,32 @@ sub mouse_disable {
 # Handle mouse event (button press or release)
 sub mouse_event {
 	my ($b, $x, $y, $oldb, $oldx, $oldy) = @_;
-	my ($xd, $yd***REMOVED***
-	my ($distance, $angle***REMOVED***
+	my ($xd, $yd);
+	my ($distance, $angle);
 
 	# uhm, in the patch the scrollwheel didn't work for me, but this does:
 	if ($b == 64) {
-		cmd("mouse_scroll_up"***REMOVED***
+		cmd("mouse_scroll_up");
 	} elsif ($b == 65) {
 		cmd("mouse_scroll_down")
 	}
 
 	# proceed only if a button is being released
-	return if ($b != 3***REMOVED***
+	return if ($b != 3);
 
-	return unless (0 <= $oldb && $oldb <= 2***REMOVED***
+	return unless (0 <= $oldb && $oldb <= 2);
 	my $button = $BUTTONS[$oldb];
 
 	# if it was a mouse click of the left button (press and release in the same position)
 	if ($x == $oldx && $y == $oldy) {
-		cmd("mouse" . $button . "_click"***REMOVED***
+		cmd("mouse" . $button . "_click");
 		return;
 	}
 
 	# otherwise, find mouse gestures
 	$xd = $x - $oldx;
-	$yd = -1 * ($y - $oldy***REMOVED***
-	$distance = sqrt($xd*$xd + $yd*$yd***REMOVED***
+	$yd = -1 * ($y - $oldy);
+	$distance = sqrt($xd*$xd + $yd*$yd);
 	# ignore small gestures
 	if ($distance < 3) {
 		return;
@@ -84,20 +84,20 @@ sub mouse_event {
 	$angle = asin($yd/$distance) * 180 / 3.14159265358979;
 	if ($angle < 20 && $angle > -20 && $xd > 0) {
 		if ($distance <= 40) {
-			cmd("mouse" . $button . "_gesture_right"***REMOVED***
+			cmd("mouse" . $button . "_gesture_right");
 		} else {
-			cmd("mouse" . $button . "_gesture_bigright"***REMOVED***
+			cmd("mouse" . $button . "_gesture_bigright");
 		}
 	} elsif ($angle < 20 && $angle > -20 && $xd < 0) {
 		if ($distance <= 40) {
-			cmd("mouse" . $button . "_gesture_left"***REMOVED***
+			cmd("mouse" . $button . "_gesture_left");
 		} else {
-			cmd("mouse" . $button . "_gesture_bigleft"***REMOVED***
+			cmd("mouse" . $button . "_gesture_bigleft");
 		}
 	} elsif ($angle > 40) {
-		cmd("mouse" . $button . "_gesture_up"***REMOVED***
+		cmd("mouse" . $button . "_gesture_up");
 	} elsif ($angle < -40) {
-		cmd("mouse" . $button . "_gesture_down"***REMOVED***
+		cmd("mouse" . $button . "_gesture_down");
 	}
 }
 
@@ -105,7 +105,7 @@ sub mouse_event {
 sub cmd
 {
 	my ($setting) = @_;
-	signal_emit("send command", settings_get_str($setting), active_win->{'active_server'}, active_win->{'active'}***REMOVED***
+	signal_emit("send command", settings_get_str($setting), active_win->{'active_server'}, active_win->{'active'});
 }
 
 
@@ -122,47 +122,47 @@ signal_add_first("gui key pressed", sub {
 			# match screen coordinates
 			$mouse_xterm_combo[1]--;
 			$mouse_xterm_combo[2]--;
-			mouse_event($mouse_xterm_combo[0], $mouse_xterm_combo[1], $mouse_xterm_combo[2], $mouse_xterm_previous[0], $mouse_xterm_previous[1], $mouse_xterm_previous[2]***REMOVED***
+			mouse_event($mouse_xterm_combo[0], $mouse_xterm_combo[1], $mouse_xterm_combo[2], $mouse_xterm_previous[0], $mouse_xterm_previous[1], $mouse_xterm_previous[2]);
 		}
-		signal_stop(***REMOVED***
+		signal_stop();
 	}
-}***REMOVED***
+});
 
 sub UNLOAD {
-	mouse_disable(***REMOVED***
+	mouse_disable();
 }
 
 if ($ENV{"TERM"} !~ /^rxvt|screen|xterm(-color)?$/) {
 	die "Your terminal doesn't seem to support this.";
 }
 
-mouse_enable(***REMOVED***
+mouse_enable();
 
-Irssi::command("/^bind meta-[M /mouse_xterm"***REMOVED*** # FIXME evil
-Irssi::command_bind("mouse_xterm", sub {$mouse_xterm_status = 0;}***REMOVED***
+Irssi::command("/^bind meta-[M /mouse_xterm"); # FIXME evil
+Irssi::command_bind("mouse_xterm", sub {$mouse_xterm_status = 0;});
 Irssi::command_bind 'mouse' => sub {
 	my ($data, $server, $item) = @_;
 	$data =~ s/\s+$//g;
-	Irssi::command_runsub('mouse', $data, $server, $item***REMOVED***
-***REMOVED***
+	Irssi::command_runsub('mouse', $data, $server, $item);
+};
 
 # temporarily disable mouse handling. Useful for copy-pasting without touching the keyboard (pressing shift)
 Irssi::command_bind 'mouse tempdisable' => sub {
 	my ($data, $server, $item) = @_;
 	my $seconds = ($data eq '') ? 5 : $data; # optional argument saying how many seconds, defaulting to 5
-	mouse_disable(***REMOVED***
-	Irssi::timeout_add_once($seconds * 1000, 'mouse_enable', undef***REMOVED*** # turn back on after $second seconds
-***REMOVED***
+	mouse_disable();
+	Irssi::timeout_add_once($seconds * 1000, 'mouse_enable', undef); # turn back on after $second seconds
+};
 
 for my $button (@BUTTONS) {
-	settings_add_str("lookandfeel", "mouse" . $button . "_click", "/mouse tempdisable 5"***REMOVED***
-	settings_add_str("lookandfeel", "mouse" . $button . "_gesture_up", "/window last"***REMOVED***
-	settings_add_str("lookandfeel", "mouse" . $button . "_gesture_down", "/window goto active"***REMOVED***
-	settings_add_str("lookandfeel", "mouse" . $button . "_gesture_left", "/window prev"***REMOVED***
-	settings_add_str("lookandfeel", "mouse" . $button . "_gesture_bigleft", "/eval window prev;window prev"***REMOVED***
-	settings_add_str("lookandfeel", "mouse" . $button . "_gesture_right", "/window next"***REMOVED***
-	settings_add_str("lookandfeel", "mouse" . $button . "_gesture_bigright", "/eval window next;window next"***REMOVED***
+	settings_add_str("lookandfeel", "mouse" . $button . "_click", "/mouse tempdisable 5");
+	settings_add_str("lookandfeel", "mouse" . $button . "_gesture_up", "/window last");
+	settings_add_str("lookandfeel", "mouse" . $button . "_gesture_down", "/window goto active");
+	settings_add_str("lookandfeel", "mouse" . $button . "_gesture_left", "/window prev");
+	settings_add_str("lookandfeel", "mouse" . $button . "_gesture_bigleft", "/eval window prev;window prev");
+	settings_add_str("lookandfeel", "mouse" . $button . "_gesture_right", "/window next");
+	settings_add_str("lookandfeel", "mouse" . $button . "_gesture_bigright", "/eval window next;window next");
 }
 
-settings_add_str("lookandfeel", "mouse_scroll_up", "/scrollback goto -10"***REMOVED***
-settings_add_str("lookandfeel", "mouse_scroll_down", "/scrollback goto +10"***REMOVED***
+settings_add_str("lookandfeel", "mouse_scroll_up", "/scrollback goto -10");
+settings_add_str("lookandfeel", "mouse_scroll_down", "/scrollback goto +10");
