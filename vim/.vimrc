@@ -102,7 +102,6 @@ set undolevels=1000
 " persist history
 if v:version >= 730
   set undofile
-  set undodir=~/.vim/.undo, ~/tmp,/tmp
 endif
 set directory=~/.vim/.tmp
 
@@ -138,7 +137,7 @@ set shiftround
 " Nerdtree
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
-#autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
