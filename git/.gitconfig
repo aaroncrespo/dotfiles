@@ -4,6 +4,7 @@
 	name = Aaron Crespo
 	email = aaroncrespo@gmail.com
 	user = aaroncrespo
+	signingkey = 874AC4FE
 [color]
 	iu = auto
 [color "branch"]
@@ -20,22 +21,22 @@
 	changed = green
 	untracked = cyan
 [alias]
-        lol = log --graph --decorate --pretty=oneline --abbrev-commit
-        lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [core]
-  	excludesfile = ~/.gitignore
-  	autocrlf = input
-  	editor = /usr/bin/vim
+	excludesfile = ~/.gitignore
+	autocrlf = input
+	editor = /usr/bin/vim
 [fetch]
 	prune = true
 [push]
 	default = current
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+[status]
+	submodulesummary = true
+[branch]
+	autosetuprebase = always
+[help]
+	autocorrect = 1
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
@@ -49,3 +50,8 @@
 	process = git-lfs filter-process
 [merge]
 	tool = opendiff
+[commit]
+	template = ~/.gitcommittemplate
+	gpgsign = true
+[http]
+	sslVerify = true

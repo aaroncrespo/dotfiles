@@ -45,9 +45,9 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-export HISTFILESIZE=1000000
+export HISTFILESIZE=50000000
 #record last 10,000 commands per session
-export HISTSIZE=1000000
+export HISTSIZE=5000000
 # When executing the same command twice or more in a row, only store it once.
 export HISTCONTROL="ignoredups:erasedupes"
 # Save Reload History after a command
