@@ -33,8 +33,6 @@
 	default = current
 [status]
 	submodulesummary = true
-[branch]
-	autosetuprebase = always
 [help]
 	autocorrect = 1
 [filter "hawser"]
@@ -55,3 +53,5 @@
 	gpgsign = true
 [http]
 	sslVerify = true
+[gpg]
+	program = /usr/local/bin/gpg
