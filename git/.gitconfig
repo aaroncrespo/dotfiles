@@ -49,7 +49,6 @@
 [merge]
 	tool = opendiff
 [commit]
-	template = ~/.gitcommittemplate
 	gpgsign = true
 [http]
 	sslVerify = true
