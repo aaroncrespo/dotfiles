@@ -61,13 +61,22 @@ shopt -s dirspell
 
 export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[31;1m\]\$(parse_git_branch)\[\e[34;1m\]\[\e[34;1m\]❯ \[\e[0m\]"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-
 if [[ $platform != 'freebsd' || $platform != 'linux' ]]; then
   alias vim="/usr/local/bin/vim"
 fi
 
+# ruby
 eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+# gpg
+if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
+    source ~/.gnupg/.gpg-agent-info
+    export GPG_AGENT_INFO
+    GPG_TTY=$(tty)
+    export GPG_TTY
+  else
+    eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+fi
 
 source ~/.iterm2_shell_integration.bash
