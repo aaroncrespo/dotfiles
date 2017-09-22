@@ -45,16 +45,16 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-export HISTFILESIZE=50000000
+HISTFILESIZE=50000000
 #record last 10,000 commands per session
-export HISTSIZE=5000000
+HISTSIZE=5000000
 # When executing the same command twice or more in a row, only store it once.
-export HISTCONTROL="ignoredups:erasedupes"
-# Save Reload History after a command
-export PROMPT_COMMAND="history -n; history -w; history -c; history -r; history -a;"prompt_command"; $PROMPT_COMMAND"
-export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
-
+HISTCONTROL=ignoredups:erasedupes
 shopt -s histappend
+HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+# Save Reload History after a command
+PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+
 shopt -s cmdhist
 shopt -s cdspell
 shopt -s dirspell
