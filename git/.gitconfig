@@ -35,10 +35,6 @@
 	submodulesummary = true
 [help]
 	autocorrect = 1
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
 [credential]
 	helper = osxkeychain
 [filter "lfs"]
@@ -54,5 +50,3 @@
 	sslVerify = true
 [gpg]
 	program = /usr/local/bin/gpg
-[lfs]
-	locksverify = false
