@@ -7,7 +7,6 @@ call vundle#begin()
 Plugin 'scrooloose/nerdtree'
 Plugin 'syntastic' 
 Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'bling/vim-airline'
 
 Plugin 'kovisoft/slimv'
