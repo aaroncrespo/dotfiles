@@ -82,6 +82,16 @@ if [ -f ~/.iterm2_shell_integration.bash ]; then
 	source ~/.iterm2_shell_integration.bash
 fi
 
+# unison
+alias unison='unison -ui text'
+function unison_update() {
+	if [[ $(whoami) == "crespo_a" ]]; then
+		unison work
+	else
+		unison home
+	fi
+}
+
 # ruby
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/bin:$PATH"
