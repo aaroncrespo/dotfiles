@@ -20,18 +20,18 @@ fi
 
 #last directory automation
 if [ -f ~/.lastdir ]; then
-  cd "`cat ~/.lastdir`"
+	cd "$(cat ~/.lastdir)"
 fi
 
 export LASTDIR="/"
 
-function prompt_command {
-  pwd > ~/.lastdir
-  newdir=`pwd`
-  if [ ! "$LASTDIR" = "$newdir" ]; then
-    ls -t | head -7
-  fi
-  export LASTDIR=$newdir
+function prompt_command() {
+	pwd >~/.lastdir
+	newdir=$(pwd)
+	if [ ! "$LASTDIR" = "$newdir" ]; then
+		ls -t | head -7
+	fi
+	export LASTDIR=$newdir
 }
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
