@@ -1,0 +1,60 @@
+
+# Unison preferences file
+
+# Roots
+#
+
+# Ignore
+ignore = Name temp.*
+ignore = Name *~
+ignore = Name .*~
+ignore = Name *.o
+ignore = Name *.tmp
+ignore = Name *.swp
+ignore = Name *.swo
+ignore = Name *.swn
+ignore = Name *.pyc
+ignore = Name .DS_Store
+
+
+## Config
+
+# Text ui by default
+ui = text
+
+# Quiet on non-conflicts
+auto = true
+
+# Request confirmation for big replica deletions
+confirmbigdeletes = true
+
+# Synchronise all bits (even SUID and stuff). Default: 0o1777
+perms = -1
+
+# Synchronise small files first (useful for small connections)
+sortbysize = true
+
+# List newly created first (avoids junk) - dunno how it works with last param..
+sortnewfirst = true
+
+# Straightforward..
+maxthreads = 50
+# log = true
+
+# Merge program
+merge = Regex .* -> vim -d --nofork CURRENT1 CURRENT2
+
+# Backup everything (!= sync)
+backup = Name *
+
+# Keep a backup copy centrally (not next to files) for files specified with "backup = Name foo"
+#backuplocation = central
+# Directory where these are stored
+#backupdir = media/backups/unison/local
+
+# Max OS X
+ignore = Name {Cache*,.Trash*,.VolumeIcon.icns,.HSicon,Temporary*,.Temporary*,TheFindByContentFolder}
+ignore = Name {TheVolumeSettingsFolder,.Metadata,.filler,.idsff,.Spotlight,.DS_Store,.CFUserTextEncoding}
+ignore = Name {Applications*,Google Drive*,Public*,Blizzard*,Library*,Desktop*,Movies*,Documents*,Music*,Downloads*,Pictures*}
+
+ignore = Name {src,.vim/bundle*,.npm*,.rbenv*}
