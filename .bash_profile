@@ -77,7 +77,10 @@ else
 	eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
 fi
 
-source ~/.iterm2_shell_integration.bash
+# iterm
+if [ -f ~/.iterm2_shell_integration.bash ]; then
+	source ~/.iterm2_shell_integration.bash
+fi
 
 # ruby
 eval "$(rbenv init -)"
