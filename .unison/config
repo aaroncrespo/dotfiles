@@ -42,7 +42,7 @@ maxthreads = 50
 # log = true
 
 # Merge program
-merge = Regex .* -> vim -d --nofork CURRENT1 CURRENT2
+# merge = Regex .* -> vim -d --nofork CURRENT1 CURRENT2
 
 # Backup everything (!= sync)
 backup = Name {.*,*}
@@ -57,5 +57,6 @@ ignore = Name {Cache*,.Trash*,.VolumeIcon.icns,.HSicon,Temporary*,.Temporary*,Th
 ignore = Name {TheVolumeSettingsFolder,.Metadata,.filler,.idsff,.Spotlight,.DS_Store,.CFUserTextEncoding}
 ignore = Name {Applications*,Google Drive*,Public*,Blizzard*,Library*,Desktop*,Movies*,Documents*,Music*,Downloads*,Pictures*}
 
-ignore = Name {src,.vim/bundle*,.npm*,.rbenv*, .bundle*,.ansible*}
-ignore = Name {.vagrant, .yard, VirtualBox VMs*, go*, .cache*}
+ignore = Name {src*,.vim/bundle*,.vscode*,.vim/.tmp*}
+ignore = Name {.npm*,.rbenv*,.bundle*,.ansible*,go*,.cache*,.gem*}
+ignore = Name {.vagrant*,.yard*,VirtualBox VMs*}
