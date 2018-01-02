@@ -45,7 +45,7 @@ maxthreads = 50
 merge = Regex .* -> vim -d --nofork CURRENT1 CURRENT2
 
 # Backup everything (!= sync)
-backup = Name *
+backup = Name {.*,*}
 
 # Keep a backup copy centrally (not next to files) for files specified with "backup = Name foo"
 #backuplocation = central
@@ -57,4 +57,5 @@ ignore = Name {Cache*,.Trash*,.VolumeIcon.icns,.HSicon,Temporary*,.Temporary*,Th
 ignore = Name {TheVolumeSettingsFolder,.Metadata,.filler,.idsff,.Spotlight,.DS_Store,.CFUserTextEncoding}
 ignore = Name {Applications*,Google Drive*,Public*,Blizzard*,Library*,Desktop*,Movies*,Documents*,Music*,Downloads*,Pictures*}
 
-ignore = Name {src,.vim/bundle*,.npm*,.rbenv*}
+ignore = Name {src,.vim/bundle*,.npm*,.rbenv*, .bundle*,.ansible*}
+ignore = Name {.vagrant, .yard, VirtualBox VMs*, go*, .cache*}

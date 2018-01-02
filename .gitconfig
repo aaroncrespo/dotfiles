@@ -50,3 +50,5 @@
 	sslVerify = true
 [gpg]
 	program = /usr/local/bin/gpg
+[lfs]
+	locksverify = false
