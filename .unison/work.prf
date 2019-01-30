@@ -1,7 +1,12 @@
 
 # Unison preferences file
 
-root = /Users/crespo_a/
-root = /Users/crespo_a/Google Drive/Backup/home
+root = /var/btmuser/
+root = /var/btmuser/Google Drive/Backup/home
 
 include config
+
+ignore = Path {.bash_history}
+ignore = Path {.solargraph}
+ignore = Path {.oracle_jre_usage}
+ignore = Path {.viminfo}

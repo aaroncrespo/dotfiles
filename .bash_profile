@@ -89,10 +89,10 @@ fi
 # unison
 alias unison='unison -ui text'
 function unison_update() {
-	if [[ $(whoami) == "crespo_a" ]]; then
-		unison work
-	else
+	if [[ $(whoami) == "aaroncrespo" ]]; then
 		unison home
+	else
+		unison work
 	fi
 }
 

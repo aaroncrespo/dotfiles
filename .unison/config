@@ -1,4 +1,3 @@
-
 # Unison preferences file
 
 # Roots
@@ -15,7 +14,6 @@ ignore = Name *.swo
 ignore = Name *.swn
 ignore = Name *.pyc
 ignore = Name .DS_Store
-
 
 ## Config
 
@@ -58,5 +56,12 @@ ignore = Name {TheVolumeSettingsFolder,.Metadata,.filler,.idsff,.Spotlight,.DS_S
 ignore = Name {Applications*,Google Drive*,Public*,Blizzard*,Library*,Desktop*,Movies*,Documents*,Music*,Downloads*,Pictures*}
 
 ignore = Name {src*,.vim/bundle*,.vscode*,.vim/.tmp*}
-ignore = Name {.npm*,.rbenv*,.bundle*,.ansible*,go*,.cache*,.gem*}
+ignore = Name {.npm*,.rbenv*,.bundle*,.ansible*,go*,.cache*,.gem*,.cocoapods,*rust*}
 ignore = Name {.vagrant*,.yard*,VirtualBox VMs*}
+ignore = Path {.vscode/extensions*}
+
+ignore = Path {.gnupg/S.gpg-agent*}
+
+ignorenot = Path {.unison/home.prf}
+ignorenot = Path {.unison/work.prf}
+ignorenot = Path {.unison/config}
