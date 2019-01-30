@@ -70,11 +70,19 @@ fi
 # gpg
 # Avoid issues with `gpg` as installed via Homebrew.
 # https://stackoverflow.com/a/42265848/96656
-export GPG_TTY=$(tty)
-eval $(gpg-agent --daemon >/dev/null 2>&1)
+gpg_tty=$(tty)
+export GPG_TTY=$gpg_tty
+
+if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
+	source ~/.gnupg/.gpg-agent-info
+	export GPG_AGENT_INFO
+else
+	eval $(gpg-agent --daemon ~/.gnupg/.gpg-agent-info >/dev/null 2>&1)
+fi
 
 # iterm
 if [ -f ~/.iterm2_shell_integration.bash ]; then
+	# shellcheck source=/dev/null
 	source ~/.iterm2_shell_integration.bash
 fi
 

@@ -1,54 +1,56 @@
 [github]
-	user = aaroncrespo
+user = aaroncrespo
 [user]
-	name = Aaron Crespo
-	email = aaroncrespo@gmail.com
-	user = aaroncrespo
-	signingkey = 874AC4FE
+name = Aaron Crespo
+email = aaroncrespo@gmail.com
+user = aaroncrespo
+signingkey = D20097D8874AC4FE
 [color]
-	iu = auto
+iu = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+current = yellow reverse
+local = yellow
+remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+meta = yellow bold
+frag = magenta bold
+old = red bold
+new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+added = yellow
+changed = green
+untracked = cyan
 [alias]
-	lol = log --graph --decorate --pretty=oneline --abbrev-commit
-	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+lol = log --graph --decorate --pretty=oneline --abbrev-commit
+lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [core]
-	excludesfile = ~/.gitignore_global
-	autocrlf = input
-	editor = /usr/bin/vim
+excludesfile = ~/.gitignore_global
+autocrlf = input
+editor = /usr/bin/vim
 [fetch]
-	prune = true
+prune = true
 [push]
-	default = current
+default = current
 [status]
-	submodulesummary = true
+submodulesummary = true
 [help]
-	autocorrect = 1
+autocorrect = 1
 [credential]
-	helper = osxkeychain
+helper = osxkeychain
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	required = true
-	clean = git-lfs clean -- %f
-	process = git-lfs filter-process
+smudge = git-lfs smudge -- %f
+required = true
+clean = git-lfs clean -- %f
+process = git-lfs filter-process
 [merge]
-	tool = opendiff
+tool = opendiff
 [commit]
-	gpgsign = true
+gpgsign = true
 [http]
-	sslVerify = true
+sslVerify = true
 [gpg]
-	program = /usr/local/bin/gpg
+program = /usr/local/bin/gpg
 [lfs]
-	locksverify = false
+locksverify = false
+[url "git@github.bamtech.co:"]
+insteadOf = https://github.bamtech.co/
