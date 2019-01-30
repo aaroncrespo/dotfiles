@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -29,10 +31,8 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Documents</string>
+	<string>~/Google Drive/Backup/home</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
-	<key>NSNavPanelExpandedSizeForSaveMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
@@ -70,18 +70,16 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>641 202 445 103 0 0 1280 777 </string>
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>-179 1983 616 174 -1151 1050 2560 1418 </string>
+	<string>532 639 616 174 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>-181 1819 620 392 -1151 1050 2560 1418 </string>
+	<string>530 476 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-915 1370 918 394 -1151 1050 2560 1417 </string>
-	<key>NSWindow Frame UKCrashReporter</key>
-	<string>127 444 592 584 0 0 1680 1028 </string>
+	<string>133 350 1016 512 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-1043 1253 2421 661 -1151 1050 2560 1418 </string>
+	<string>192 119 1082 513 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>15 163 650 477 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_D4A11750-ECDD-45F2-8C36-3F4300C6C8E5</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_D4A11750-ECDD-45F2-8C36-3F4300C6C8E5_selection</key>
@@ -270,7 +268,9 @@
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
-			<false/>
+			<true/>
+			<key>Blur Radius</key>
+			<real>27.588174175126905</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -787,6 +787,8 @@
 			<true/>
 			<key>Normal Font</key>
 			<string>SourceCodeProForPowerline-Light 13</string>
+			<key>Only The Default BG Color Uses Transparency</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -830,7 +832,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.063977236675126906</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -853,14 +855,22 @@
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
-	<key>NoSyncHaveUsedCopyMode</key>
+	<key>NoSyncConfirmShellIntegrationCommand</key>
 	<true/>
-	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
+	<key>NoSyncConfirmShellIntegrationCommand_selection</key>
+	<integer>0</integer>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
 	<true/>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
+	<integer>1</integer>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
+	<key>NoSyncInstallUtilitiesPackage</key>
+	<true/>
+	<key>NoSyncInstallUtilitiesPackage_selection</key>
+	<integer>0</integer>
 	<key>NoSyncInstallationId</key>
-	<string>2A3B937B-0EE7-49A9-AE29-2FBB2AE39841</string>
+	<string>A707CF77-2E5C-4259-BDF4-7D7FA1C7009C</string>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -868,7 +878,7 @@
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>526489163.39299703</real>
+	<real>542075671.57607603</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>PMPrintingExpandedStateForPrint2</key>
@@ -907,7 +917,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/crespo_a/src/other/dotfiles</string>
+	<string>/Users/aaroncrespo/Google Drive/Backup/home</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>SUAutomaticallyUpdate</key>
@@ -917,19 +927,17 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing.xml?shard=36</string>
+	<string>https://iterm2.com/appcasts/testing.xml?shard=94</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-10-23T14:52:49Z</date>
+	<date>2019-01-27T00:42:40Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.10000000000000001</real>
 	<key>TabStyle</key>
 	<integer>1</integer>
-	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1505999232</real>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
@@ -939,7 +947,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.4.beta.1</string>
+	<string>3.2.7beta4</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
