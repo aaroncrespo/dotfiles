@@ -10,32 +10,32 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 	platform='darwin'
 fi
 
+# completions
 for file in ~/.{bash_aliases,git-completion.bash,~/.rbenv/completions/rbenv.bash}; do
+	# shellcheck source=/dev/null
 	[ -r "$file" ] && source "$file"
 done
 
-if [ -f ~/.git-completion.bash ]; then
-	. ~/.git-completion.bash
-fi
-
-#last directory automation
+# last directory automation
 if [ -f ~/.lastdir ]; then
-	cd "$(cat ~/.lastdir)"
+	cd "$(cat ~/.lastdir)" || return
 fi
 
 export LASTDIR="/"
 
-function prompt_command() {
+function store_last_dir() {
 	pwd >~/.lastdir
 	newdir=$(pwd)
 	if [ ! "$LASTDIR" = "$newdir" ]; then
-		ls -t | head -7
+		# shellcheck disable=2012
+		ls -Art | tail -n 7
 	fi
 	export LASTDIR=$newdir
 }
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-	. $(brew --prefix)/etc/bash_completion
+if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+	# shellcheck source=/dev/null
+	. "$(brew --prefix)/etc/bash_completion"
 fi
 
 # Git status for prompt
@@ -44,18 +44,18 @@ function parse_git_dirty() {
 }
 
 function parse_git_branch() {
-	git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+	git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e "s/* \\(.*\\)/\\1$(parse_git_dirty)/"
 }
 
 HISTFILESIZE=50000000
-#record last 10,000 commands per session
+# record last 10,000 commands per session
 HISTSIZE=5000000
 # When executing the same command twice or more in a row, only store it once.
-HISTCONTROL=ignoredups:erasedupes
+export HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
-HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 # Save Reload History after a command
-PROMPT_COMMAND="history -n; history -w; history -c; history -r; prompt_command"
+PROMPT_COMMAND="history -n; history -w; history -c; history -r; store_last_dir $PROMPT_COMMAND"
 
 shopt -s cmdhist
 shopt -s cdspell
@@ -63,7 +63,7 @@ shopt -s dirspell
 
 export PS1="\[\e[32;1m\]\u \[\e[33;1m\]\w\[\e[0;1;30m\] \[\e[31;1m\]\$(parse_git_branch)\[\e[34;1m\]\[\e[34;1m\]❯ \[\e[0m\]"
 
-if [[ $platform != 'freebsd' || $platform != 'linux' ]]; then
+if [[ $platform != 'freebsd' ]] || [[ $platform != 'linux' ]]; then
 	alias vim="/usr/local/bin/vim"
 fi
 
@@ -98,4 +98,11 @@ function unison_update() {
 
 # ruby
 eval "$(rbenv init -)"
+
 export PATH="$HOME/.rbenv/bin:$PATH"
+
+# rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# go
+export PATH="$(go env GOPATH >/dev/null 2>&1)/bin:$PATH"
