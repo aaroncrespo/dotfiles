@@ -1,28 +1,31 @@
-set nocompatible
-filetype off
+" vim: set tabstop=8 softtabstop=2 shiftwidth=2 expandtab nowrap:
 
+scriptencoding utf-8  " this file is in utf-8
+
+set nocompatible " Don't emulate vi's limitations. This is also required for Vundle
+filetype off     " Required for Vundle. This is re-enabled further down.
+
+set shell=/bin/bash  " Vundle's commands only work in bash
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-Plugin 'scrooloose/nerdtree'
-Plugin 'syntastic' 
-Plugin 'kien/ctrlp.vim'
+"brew install vim --enable-rubyinterp --enable-pythoninterp --enable-python3interp --enable-gui=no --enable-perlinterp
+Plugin 'scrooloose/nerdtree' " Tree file explorer
+Plugin 'wincent/Command-T'   " Fuzzy file finder.
 Plugin 'bling/vim-airline'
-
+Plugin 'vim-scripts/TagHighlight'  " Enhanced syntax highlighting by parsing
+                                   " ctags.
+Plugin 'Valloric/YouCompleteMe'    " Autocompletion for many languages, most
+                                  " notably C/C++/Objective-C via libclang.
 Plugin 'kovisoft/slimv'
 
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-classpath'
-Plugin 'guns/vim-clojure-static'
 
-Plugin 'gregsexton/MatchTag'
+call vundle#end()         " Finish Plugins
+filetype indent plugin on " Required for Vundle.
 
-Plugin 'pangloss/vim-javascript'
-
-call vundle#end()
-filetype indent plugin on
-
-set encoding=utf-8
+" Terminal
+if (&term =~ "xterm") && (&termencoding == "")
+  set termencoding=utf-8
+endif
 
 " use patched fonts
 let g:airline_powerline_fonts = 1
@@ -30,7 +33,7 @@ let g:airline_powerline_fonts = 1
 "set ofu=syntaxcomplete#Complete
 
 " Appearance
-" syntax highlight 
+" syntax highlight
 syntax on
 
 "color sceheme
@@ -70,7 +73,7 @@ set matchtime=1
 " set autoindent
 
 " copy previous indent when auto indent
-set copyindent 
+set copyindent
 
 " show matches as typed
 set incsearch
@@ -94,7 +97,7 @@ noremap ; :
 
 " cmd history length
 set history=1000
-  
+
 " undo history
 set undolevels=1000
 
@@ -102,9 +105,11 @@ set undolevels=1000
 if v:version >= 730
   set undofile
 endif
-set directory=~/.vim/.tmp
 
-"draw line bellow cursor
+" swap
+set directory^=$HOME/.vim/tmp//
+
+" draw line bellow cursor
 set cursorline
 
 " no bell
@@ -144,7 +149,7 @@ let NERDTreeMouseMode=2
 let NERDTreeMinimalUI=1
 " show hidden files
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['swo$','\.swp$','\.git','\.hg','\.svn','\.bzr']
+let NERDTreeIgnore=['swo$','\.swp$','\.git','\.hg','\.svn','\.bzr', '\.DS_Store', '\.swp$']
 let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
