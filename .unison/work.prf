@@ -1,8 +1,8 @@
 
 # Unison preferences file
 
-root = /var/btmuser/
-root = /var/btmuser/Google Drive/Backup/home
+root = /Users/acrespo/
+root = /Users/acrespo/Google Drive/Backup/home
 
 include config
 

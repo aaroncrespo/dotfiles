@@ -62,6 +62,11 @@ ignore = Path {.vscode/extensions*}
 
 ignore = Path {.gnupg/S.gpg-agent*}
 
+ignore = Path {.unison/ar*}
+ignore = Path {.unison/fp*}
+ignore = Path {.unison/backup*}
+ignore = Path {unison.log}
+
 ignorenot = Path {.unison/home.prf}
 ignorenot = Path {.unison/work.prf}
 ignorenot = Path {.unison/config}
