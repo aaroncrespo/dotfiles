@@ -77,7 +77,7 @@ if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
 	source ~/.gnupg/.gpg-agent-info
 	export GPG_AGENT_INFO
 else
-	eval $(gpg-agent --daemon ~/.gnupg/.gpg-agent-info >/dev/null 2>&1)
+	eval $(gpg-agent --daemon --pinentry-program /usr/local/bin/pinentry-mac)
 fi
 
 # iterm
@@ -105,4 +105,4 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # go
-export PATH="$(go env GOPATH >/dev/null 2>&1)/bin:$PATH"
+export PATH="$(go env GOPATH 2>/dev/null)/bin:$PATH"
