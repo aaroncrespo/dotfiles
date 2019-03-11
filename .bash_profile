@@ -18,7 +18,7 @@ done
 
 # last directory automation
 if [ -f ~/.lastdir ]; then
-	cd "$(cat ~/.lastdir)" || return
+	cd "$(cat ~/.lastdir)" 2>/dev/null
 fi
 
 export LASTDIR="/"
